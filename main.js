@@ -3,6 +3,8 @@ const busboy = require("connect-busboy"); // Middleware to handle the file uploa
 const path = require("path"); // Used for manipulation with path
 const fs = require("fs-extra"); // Classic fs
 
+const port = process.env.PORT || 3000;
+
 const app = express(); // Initialize the express web server
 app.use(
   busboy({
@@ -51,6 +53,6 @@ app.route("/").get((req, res) => {
   return res.end();
 });
 
-const server = app.listen(3200, function () {
-  console.log(`Listening on port ${server.address().port}`);
+const server = app.listen(port, function () {
+  console.log(`Listening on port ${port}`);
 });
